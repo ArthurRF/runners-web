@@ -1,13 +1,19 @@
-import { Inter } from 'next/font/google'
+import Card from "@/components/Card"
+import Carousel from "@/components/Carousel"
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+const Home: React.FC = () => {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      Olá mundo
-    </main>
+    <>
+      <Carousel />
+      <Card
+        id={1}
+        assessments={321}
+        mainImg="/run-example.png"
+        organizerImg="/organizer-example.png"
+        runners={454}
+      />
+    </>
   )
 }
+
+export default Home
