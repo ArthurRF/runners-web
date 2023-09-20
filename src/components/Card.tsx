@@ -18,13 +18,13 @@ const Card = ({
   runners
 }: IProps) => {
   return (
-    <div className="card card-compact w-2/5 bg-base-100 shadow-xl">
-      <figure><Image src={mainImg} alt="Shoes" width={500} height={500} /></figure>
+    <div className="card card-compact bg-base-100 shadow-xl m-4">
+      <figure><Image src={mainImg} alt="Shoes" width={600} height={600} /></figure>
       <div className="card-body">
-        <div className="card-actions justify-between w-full">
+        <div className="card-actions justify-between items-center w-full">
           <Image src={organizerImg} alt='Logo do organizador do evento' width={100} height={100} />
-          <div><User fill="true"/>{assessments} avaliações</div>
-          <div><User fill="true"/>{runners} correram</div>
+          <div className="flex"><User fill="true"/>{assessments} avaliações</div>
+          <div className="flex"><User fill="true"/>{runners} correram</div>
           <Link className="btn bg-lightGreen" href={`/run/${id}`}>Avaliar</Link>
         </div>
       </div>

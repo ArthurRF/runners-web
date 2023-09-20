@@ -11,7 +11,7 @@ const NavBar: React.FC = () => {
     return <></>
   }
   return (
-    <div className="navbar bg-base-100 p-6 w-full">
+    <div className="navbar p-6 w-full mb-4">
       <div className="max-w-screen-xl mx-auto my-0 w-full">
         <div className="flex-1">
           <Link href={''}>
@@ -19,7 +19,7 @@ const NavBar: React.FC = () => {
           </Link>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 text-lg font-medium">
             <li><Link href={''}>Eventos concluídos</Link></li>
             <li><Link href={''}>Próximos eventos</Link></li>
             <li>
