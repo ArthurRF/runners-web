@@ -3,7 +3,7 @@ import RunCardsList from "@/components/RunCardsList"
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-red-300 w-screen">
+    <div className="bg-red-300">
       <Carousel />
       <RunCardsList />
     </div>
