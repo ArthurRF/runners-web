@@ -12,9 +12,16 @@ type IProps = {
 
 const Card = ({ id, assessments, mainImg, organizerImg, runners }: IProps) => {
   return (
-    <div className="card card-compact bg-base-100 shadow-xl mx-0 my-4">
+    <div className="card card-compact bg-base-200 shadow-xl border-2">
       <figure>
-        <Image src={mainImg} alt="Shoes" width={600} height={600} />
+        <Link href={`/run/${id}`}>
+          <Image
+            src={mainImg}
+            alt="Banner da corrida"
+            width={1200}
+            height={1200}
+          />
+        </Link>
       </figure>
       <div className="card-body">
         <div className="card-actions justify-between items-center w-full">

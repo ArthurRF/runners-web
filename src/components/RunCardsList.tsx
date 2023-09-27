@@ -33,7 +33,7 @@ const runsMock = [
 
 const RunCardsList = () => {
   return (
-    <div className="flex flex-col md:grid md:grid-cols-2">
+    <div className="flex flex-col gap-x-8 gap-y-8 md:grid md:grid-cols-2">
       {runsMock.map((run) => {
         return (
           <div key={run.id}>
