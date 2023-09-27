@@ -30,7 +30,7 @@ const NavBar: React.FC = () => {
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <div className="w-full navbar max-w-screen-xl mx-auto">
-          <div className="flex-1 px-2 mx-2">
+          <div className="flex-1">
             <Link href={"/"}>
               <Image
                 src={"/logo.jpg"}
@@ -58,7 +58,7 @@ const NavBar: React.FC = () => {
             </label>
           </div>
           <div className="flex-none hidden md:block">
-            <ul className="menu menu-horizontal">
+            <ul className="menu menu-horizontal p-0">
               {/* Navbar menu content here */}
               <li>{RegisterLink}</li>
               <li>{LoginLink}</li>
