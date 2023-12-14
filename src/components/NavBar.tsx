@@ -1,27 +1,38 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { User, UserPlus } from "react-feather";
+import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { User, UserPlus } from "react-feather"
+import { useSession, signIn, signOut } from "next-auth/react"
+import { useEffect, useState } from "react"
 
 const RegisterLink = (
   <Link href={"/"}>
     <UserPlus fill="true" />
     Cadastre-se
   </Link>
-);
+)
 const LoginLink = (
-  <Link href={"/"}>
+  <Link href={"/api/auth/signin"}>
     <User fill="true" />
     Entre
   </Link>
-);
+)
 
 const NavBar: React.FC = () => {
-  const { pathname } = useRouter();
-  const isLogin = pathname === "/login";
+  const [user, setUser] = useState()
+
+  const { pathname } = useRouter()
+  const isLogin = pathname === "/login"
+  const { data: session } = useSession()
+
+  useEffect(() => {
+    if (session) {
+      setUser(session.user)
+    }
+  }, [session])
 
   if (isLogin) {
-    return <></>;
+    return <></>
   }
 
   return (
@@ -61,7 +72,7 @@ const NavBar: React.FC = () => {
             <ul className="menu menu-horizontal p-0">
               {/* Navbar menu content here */}
               <li>{RegisterLink}</li>
-              <li>{LoginLink}</li>
+              <li>{user ? user.name : LoginLink}</li>
             </ul>
           </div>
         </div>
@@ -71,11 +82,16 @@ const NavBar: React.FC = () => {
         <ul className="menu p-4 w-80 min-h-full bg-base-200">
           {/* Sidebar content here */}
           <li>{RegisterLink}</li>
-          <li>{LoginLink}</li>
+          {user && (
+            <li>
+              <img src={`${user.image}`} className="round" />
+            </li>
+          )}
+          <li>{user ? user.name : LoginLink}</li>
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
