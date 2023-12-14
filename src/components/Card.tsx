@@ -1,16 +1,16 @@
-import Image from "next/image";
-import Link from "next/link";
-import { User } from "react-feather";
+import Image from "next/image"
+import Link from "next/link"
+import { User } from "react-feather"
 
 type IProps = {
-  id: number;
-  mainImg: string;
-  assessments: number;
-  runners: number;
-  organizerImg: string;
-};
+  id: number
+  mainImg: string
+  reviews: number
+  runners: number
+  organizerImg: string
+}
 
-const Card = ({ id, assessments, mainImg, organizerImg, runners }: IProps) => {
+const Card = ({ id, reviews, mainImg, organizerImg, runners }: IProps) => {
   return (
     <div className="card card-compact bg-base-200 shadow-xl border-2">
       <figure>
@@ -33,7 +33,7 @@ const Card = ({ id, assessments, mainImg, organizerImg, runners }: IProps) => {
           />
           <div className="flex">
             <User fill="true" />
-            {assessments} avaliações
+            {reviews} avaliações
           </div>
           <div className="flex">
             <User fill="true" />
@@ -45,7 +45,7 @@ const Card = ({ id, assessments, mainImg, organizerImg, runners }: IProps) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card
