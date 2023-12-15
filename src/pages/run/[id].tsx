@@ -1,4 +1,4 @@
-import type { GetServerSideProps } from "next"
+import type { GetServerSideProps } from 'next'
 
 type Props = {
   routeDetails: {
@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = (async ({ params }) => {
     }
   }
 
-  const res = await fetch(`http://localhost:3333/events/${id}`)
+  const res = await fetch(`${process.env.CORE_API_URL}/events/${id}`)
 
   if (!res.ok) {
     return {
