@@ -9,6 +9,7 @@ type Props = {
     runners: number
     createdAt: string
     updatedAt: string
+    reviews: any[]
   }[]
 }
 
@@ -16,6 +17,7 @@ const Home: React.FC<Props> = ({ runs }) => {
   return (
     <div className='m-2'>
       <Carousel />
+      <h1 className='text-2xl font-semibold mb-2'>Corridas:</h1>
       <RunCardsList runs={runs} />
     </div>
   )

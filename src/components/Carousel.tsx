@@ -5,7 +5,7 @@ const Carousel: React.FC = () => {
     <div className='carousel w-full'>
       <div id='slide1' className='carousel-item relative w-full'>
         <Image
-          src='/carousel-example.svg'
+          src='/carousel-1.svg'
           className='w-full mb-5'
           alt='Imagem de corrida'
           width={300}

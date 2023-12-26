@@ -5,12 +5,6 @@ import { User, UserPlus } from 'react-feather'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 
-const RegisterLink = (
-  <Link href={'/'}>
-    <UserPlus fill='true' />
-    Cadastre-se
-  </Link>
-)
 const LoginLink = (
   <Link href={'/api/auth/signin'}>
     <User fill='true' />
@@ -80,8 +74,8 @@ const NavBar: React.FC = () => {
                       className='rounded-full p-0'
                       src={user.image ?? '/default-profile.svg'}
                       alt='profile-avatar'
-                      width={60}
-                      height={60}
+                      width={45}
+                      height={45}
                     ></Image>
                     <p>{user.name}</p>
                   </div>
@@ -97,13 +91,12 @@ const NavBar: React.FC = () => {
         <label htmlFor='nav-drawer' className='drawer-overlay'></label>
         <ul className='menu p-4 w-80 min-h-full bg-base-200'>
           {/* Sidebar content here */}
-          <li>{RegisterLink}</li>
           {user && (
-            <li>
+            <>
               <img src={`${user.image}`} className='round' />
-            </li>
+              {user ? user.name : LoginLink}
+            </>
           )}
-          <li>{user ? user.name : LoginLink}</li>
         </ul>
       </div>
     </div>
