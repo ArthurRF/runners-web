@@ -1,7 +1,7 @@
-import { SessionProvider } from "next-auth/react"
+import { ClerkProvider } from '@clerk/nextjs'
 
 const GlobalContextProvider: React.FC<any> = ({ children, session }) => {
-  return <SessionProvider session={session}>{children}</SessionProvider>
+  return <ClerkProvider>{children}</ClerkProvider>
 }
 
 export default GlobalContextProvider
