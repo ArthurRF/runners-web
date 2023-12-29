@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { User, UserPlus } from 'react-feather'
-import { useSession, signIn, signOut } from 'next-auth/react'
+import { User, LogOut } from 'react-feather'
+import { useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 
 const LoginLink = (
@@ -34,7 +34,7 @@ const NavBar: React.FC = () => {
   }
 
   return (
-    <div className='drawer drawer-end z-10'>
+    <div className='drawer drawer-end z-10 bg-neutral-300'>
       <input id='nav-drawer' type='checkbox' className='drawer-toggle' />
       <div className='drawer-content flex flex-col'>
         <div className='w-full navbar max-w-screen-xl mx-auto'>
@@ -48,37 +48,35 @@ const NavBar: React.FC = () => {
               ></Image>
             </Link>
           </div>
-          <div className='flex-none md:hidden'>
-            <label htmlFor='nav-drawer' className='btn btn-square btn-ghost'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                className='inline-block w-6 h-6 stroke-current'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth='2'
-                  d='M4 6h16M4 12h16M4 18h16'
-                ></path>
-              </svg>
-            </label>
-          </div>
-          <div className='flex-none hidden md:block'>
+          <div className='flex-none'>
             <ul className='menu menu-horizontal p-0'>
               <li>
                 {user ? (
-                  <div>
-                    <Image
-                      className='rounded-full p-0'
-                      src={user.image ?? '/default-profile.svg'}
-                      alt='profile-avatar'
-                      width={45}
-                      height={45}
-                    ></Image>
-                    <p>{user.name}</p>
-                  </div>
+                  <details>
+                    <summary>
+                      <div className='flex items-center gap-2'>
+                        <Image
+                          className='rounded-full p-0'
+                          src={user.image ?? '/default-profile.svg'}
+                          alt='profile-avatar'
+                          width={45}
+                          height={45}
+                        ></Image>
+                        <p className='hidden md:block'>{user.name}</p>
+                      </div>
+                    </summary>
+                    <ul className='!m-0 w-full'>
+                      <li>
+                        <Link
+                          href={'/api/auth/signout'}
+                          className='flex justify-between'
+                        >
+                          <p>Sair</p>
+                          <LogOut />
+                        </Link>
+                      </li>
+                    </ul>
+                  </details>
                 ) : (
                   LoginLink
                 )}
@@ -86,18 +84,6 @@ const NavBar: React.FC = () => {
             </ul>
           </div>
         </div>
-      </div>
-      <div className='drawer-side'>
-        <label htmlFor='nav-drawer' className='drawer-overlay'></label>
-        <ul className='menu p-4 w-80 min-h-full bg-base-200'>
-          {/* Sidebar content here */}
-          {user && (
-            <>
-              <img src={`${user.image}`} className='round' />
-              {user ? user.name : LoginLink}
-            </>
-          )}
-        </ul>
       </div>
     </div>
   )
