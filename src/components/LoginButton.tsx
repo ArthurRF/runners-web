@@ -12,7 +12,7 @@ export const LoginButton: React.FC = () => {
   return (
     <>
       <SignedIn>
-        <UserButton showName />
+        <UserButton afterSignOutUrl='/' showName />
       </SignedIn>
 
       <SignedOut>
