@@ -12,11 +12,11 @@ export const LoginButton: React.FC = () => {
   return (
     <>
       <SignedIn>
-        <UserButton afterSignOutUrl='/' showName />
+        <UserButton showName />
       </SignedIn>
 
       <SignedOut>
-        <SignInButton />
+        <SignInButton>Entrar</SignInButton>
       </SignedOut>
     </>
   )
