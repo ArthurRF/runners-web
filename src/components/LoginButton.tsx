@@ -1,14 +1,6 @@
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-  useUser,
-} from '@clerk/nextjs'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 
 export const LoginButton: React.FC = () => {
-  const { user: clerkUser } = useUser()
-
   return (
     <>
       <SignedIn>
@@ -16,7 +8,9 @@ export const LoginButton: React.FC = () => {
       </SignedIn>
 
       <SignedOut>
-        <SignInButton>Entrar</SignInButton>
+        <SignInButton>
+          <div className='bg-midGreen text-white'>Entrar</div>
+        </SignInButton>
       </SignedOut>
     </>
   )
