@@ -19,11 +19,7 @@ const NavBar: React.FC = () => {
             </Link>
           </div>
           <div className='flex-none'>
-            <ul className='menu menu-horizontal p-0'>
-              <li>
-                <LoginButton />
-              </li>
-            </ul>
+            <LoginButton />
           </div>
         </div>
       </div>

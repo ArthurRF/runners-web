@@ -4,7 +4,7 @@ export const LoginButton: React.FC = () => {
   return (
     <>
       <SignedIn>
-        <UserButton showName />
+          <UserButton showName />
       </SignedIn>
 
       <SignedOut>

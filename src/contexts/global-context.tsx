@@ -9,6 +9,7 @@ const GlobalContextProvider: React.FC<any> = ({ children, session }) => {
         elements: {
           profileSection__emailAddresses: 'hidden',
           profileSection__danger: 'hidden',
+          // userButtonOuterIdentifier: 'hidden'
         },
       }}
     >
